@@ -9,17 +9,17 @@
           <table class="table table-bordered">
             <tr>
               <td class="bg-light">氏名</td>
-              <td><%= @customer.full_name %></td>
+              <td><%= @customer.last_name + @customer.first_name %></td>
             </tr>
 
             <tr>
               <td class="bg-light">カナ</td>
-              <td><%= @customer.full_name_kana %></td>
+              <td><%= @customer.last_name_kana + @customer.first_name_kana %></td>
             </tr>
 
             <tr>
               <td class="bg-light">郵便番号</td>
-              <td><%= @customer.postcode %></td>
+              <td><%= @customer.postal_code %></td>
             </tr>
 
             <tr>
@@ -29,7 +29,7 @@
 
             <tr>
               <td class="bg-light">電話番号</td>
-              <td><%= @customer.phone_number %></td>
+              <td><%= @customer.telephone_number %></td>
             </tr>
 
             <tr>

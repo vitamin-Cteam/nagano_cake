@@ -10,6 +10,7 @@
       <span>（税込）</span>
       <%= form_with model: CartItem.new do |f| %>
         <%= f.select :amount, *[1..10], { prompt: '個数選択' } %>
+        <%= f.hidden_field :item_id, :value => @item.id %>
         <%= f.submit "カートに入れる", class: "btn btn-sm btn-success" %>
       <% end %>
     </div>

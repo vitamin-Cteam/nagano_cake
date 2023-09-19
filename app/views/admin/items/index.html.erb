@@ -15,17 +15,17 @@
     <tbody>
       <% @items.each do |item| %>
       <tr>
-        <th><%= item.id %></th>
-        <th><%= link_to item.name, admin_item_path(item.id) %></th>
-        <th><%= item.price %></th>
-        <th><%= item.genre.name %></th>
-        <th>
+        <td><%= item.id %></td>
+        <td><%= link_to item.name, admin_item_path(item.id) %></td>
+        <td><%= item.price %></td>
+        <td><%= item.genre.name %></td>
+        <td>
           <% if item.is_on_sale %>
               <p class="text-success"><strong>販売中</strong></p>
             <% elsif %>
-              <p class="text-muted"><strong>販売停止</strong></p>
+              <p class="text-muted"><strong>販売停止中</strong></p>
           <% end %>
-        </th>
+        </td>
       </tr>
       <% end %>
     </tbody>

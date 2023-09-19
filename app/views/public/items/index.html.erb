@@ -3,12 +3,13 @@
   <span>（全<%= @items.count %>件）</span>
   <div class="d-flex flex-wrap">
     <% @items.each do |item| %>
-      <%= image_tag @item.get_item_image(180, 120) %>
+      <%= image_tag item.get_item_image(180, 120) %>
       <p><%= item.name %></p>
       <% if item.is_on_sale == true %>
-        <p><%= number_to_currency(item.price * 1.1, unit: "¥", format: "%u %n" %></p>
+
+        <p><%= number_to_currency(item.price * 1.1, unit: "¥", strip_insignificant_zeros: true %></p>
       <% else %>
-        <p class=".text-danger">SOLD OUT</p>
+        <p class="text-danger">SOLD OUT</p>
       <% end %>
     <% end %>
   </div>

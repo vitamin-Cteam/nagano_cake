@@ -1,5 +1,5 @@
 class Public::CartItemsController < ApplicationController
-  before_action :authenticate_user!
+  before_action :authenticate_customer!
 
   def index
     @cart_items = current_customer.cart_items.includes([:item])
@@ -31,6 +31,7 @@ class Public::CartItemsController < ApplicationController
         @cart_item.save
       end
     end
+    redirect_to cart_items_path
   end
 
   private

@@ -7,6 +7,11 @@ class Customer < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
+  # is_activeがfalseならtrueを返すようにしている
+  def active_for_authentication?
+    super && (is_active == false)
+  end
+
   validates :last_name,       presence: true, length: {maximum: 20}
   validates :last_name_kana,  presence: true, length: {maximum: 20}, format: { with: /\A[\p{katakana}\u{30fc}]+\z/ }
   validates :first_name,        presence: true, length: {maximum: 20}

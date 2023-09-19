@@ -2,12 +2,12 @@ class Public::CartItemsController < ApplicationController
   before_action :authenticate_user!
 
   def index
-    @cart_items = current_customer.cart_items
+    @cart_items = current_customer.cart_items.includes([:item])
   end
 
   def update
     cart_item = current_customer.cart_items.find_by(:item_id)
-    cart_item.update(cart_item_params)
+    cart_item.update(amount: cart_item_params.amount)
   end
 
   def destroy
@@ -23,11 +23,13 @@ class Public::CartItemsController < ApplicationController
     @cart_item = CartItem.new(cart_item_params)
     @cart_item.customer_id = current_customer.id
     cart_item = current_customer.cart_items.find_by(:item_id)
-    if cart_items
-      amount = current_customer.cart_items.amount + params[:amount].to_i
-      cart_item.amount.update(amount)
-    else
-      @cart_item.save
+    if @cart_item.item.is_on_sale == true
+      if cart_item
+        amount = current_customer.cart_items.amount + cart_item_params.amount.to_i
+        @cart_item.update(amount: amount)
+      else
+        @cart_item.save
+      end
     end
   end
 

@@ -1,2 +1,17 @@
-<h1>Public::Items#index</h1>
-<p>Find me in app/views/public/items/index.html.erb</p>
+<div class="container">
+  <h1>商品一覧</h1>
+  <span>（全<%= @items.count %>件）</span>
+  <div class="d-flex flex-wrap">
+    <% @items.each do |item| %>
+      <%= image_tag item.get_item_image(180, 120) %>
+      <p><%= item.name %></p>
+      <% if item.is_on_sale == true %>
+
+        <p><%= number_to_currency(item.price * 1.1, unit: "¥", strip_insignificant_zeros: true %></p>
+      <% else %>
+        <p class="text-danger">SOLD OUT</p>
+      <% end %>
+    <% end %>
+  </div>
+  <%= paginate @items %>
+</div>

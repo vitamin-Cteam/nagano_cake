@@ -11,7 +11,7 @@
 <% end %>
 
 <!--form部分-->
-<%= form_with model: @customer, method: :patch do |f| %>
+<%= form_with model: @customer, url: admin_customer_path(@customer), method: :patch do |f| %>
   <table class="table">
     <tr>
       <td>会員ID</td>

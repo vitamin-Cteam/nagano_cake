@@ -12,10 +12,9 @@ class Public::CustomersController < ApplicationController
     @customer = current_customer
     if @customer.update(customer_params)
       flash[:notice] = "会員情報を更新しました"
-      redirect_to customer_path
+      redirect_to customers_information_path
     else
-      @customer = current_member
-      flash.now[:notice] = "会員情報の変更に失敗しました"
+      @customer = current_customer
       render :edit
     end
   end
@@ -24,7 +23,7 @@ class Public::CustomersController < ApplicationController
   end
 
   def withdraw
-    @customer = Customer.find(current_customer.id)
+    @customer = current_customer
     # is_activeカラムをtrueに変更することにより削除フラグを立てる
     @customer.update(is_active: true)
     reset_session

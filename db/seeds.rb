@@ -22,3 +22,53 @@ Admin.create!(
    email: 'testc@testc.com',
    password: '111111'
 )
+
+Genre.create!(
+  [
+    {
+      name: 'ケーキ',
+    },
+    {
+      name: '焼き菓子',
+    },
+    {
+      name: 'プリン',
+    },
+    {
+      name: 'キャンディ',
+    }
+  ]
+)
+
+Item.create!(
+  [
+    {
+      genre_id: 1,
+      name: 'ケーキ',
+      description: 'test',
+      price: 1000,
+      is_on_sale: true
+    },
+    {
+      genre_id: 2,
+      name: '焼き菓子',
+      description: 'test',
+      price: 1000,
+      is_on_sale: true
+    },
+    {
+      genre_id: 3,
+      name: 'プリン',
+      description: 'test',
+      price: 1000,
+      is_on_sale: true
+    },
+    {
+      genre_id: 4,
+      name: 'キャンディ',
+      description: 'test',
+      price: 1000,
+      is_on_sale: false
+    }
+  ]
+)

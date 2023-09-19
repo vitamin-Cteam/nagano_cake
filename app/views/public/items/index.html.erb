@@ -3,14 +3,17 @@
   <span>（全<%= @items.count %>件）</span>
   <div class="d-flex flex-wrap">
     <% @items.each do |item| %>
-      <%= image_tag item.get_item_image(180, 120) %>
-      <p><%= item.name %></p>
-      <% if item.is_on_sale == true %>
-
-        <p><%= number_to_currency(item.price * 1.1, unit: "¥", strip_insignificant_zeros: true %></p>
-      <% else %>
-        <p class="text-danger">SOLD OUT</p>
-      <% end %>
+      <div class="mx-1 mb-3">
+        <%= link_to item_path(item.id) do %>
+          <%= image_tag item.get_item_image(180, 120) %>
+        <% end %>
+        <p><%= item.name %></p>
+        <% if item.is_on_sale == true %>
+          <p>¥<%= item.with_tax_price.to_s(:delimited) %></p>
+        <% else %>
+          <p class="text-danger">SOLD OUT</p>
+        <% end %>
+      </div>
     <% end %>
   </div>
   <%= paginate @items %>

@@ -8,11 +8,17 @@
 Customer.create!(
    email: 'test@test.com',
    last_name: 'テスト',
-   first_name: 'テスト太郎',
+   first_name: '太郎',
    last_name_kana: 'テスト',
-   first_name_kana: 'たろう',
+   first_name_kana: 'タロウ',
    postal_code: '0000000',
    address: 'テスト',
    telephone_number: '0000000000',
-   is_active: 'false'
+   is_active: 'false',
+   encrypted_password: '000000'
+)
+
+Admin.create!(
+   email: 'testc@testc.com',
+   encrypted_password: '111111'
 )

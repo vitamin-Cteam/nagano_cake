@@ -13,22 +13,22 @@
   <tbody>
   <% @customers.each do |customer| %>
     <tr>
-      <th>
+      <td>
         <%= customer.id %>
-      </th>
-      <th>
-        <%= customer.last_name %><%= customer.first_name %>
-      <th>
-      <th>
+      </td>
+      <td>
+        <u><%= link_to "#{customer.last_name}#{customer.first_name}", admin_customer_path(customer),  class: "text-reset" %></u>
+      </td>
+      <td>
         <%= customer.email %>
-      </th>
-      <th>
+      </td>
+      <td>
         <% if customer.is_active == true %>
-          <p>有効</p>
+          <p class="text-success">有効</p>
         <% else %>
-          <p>退会</p>
+          <p class="text-secondary">退会</p>
         <% end %>
-      </th>
+      </td>
     </tr>
   <% end %>
   </tbody>

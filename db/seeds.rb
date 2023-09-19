@@ -15,10 +15,10 @@ Customer.create!(
    address: 'テスト',
    telephone_number: '0000000000',
    is_active: 'false',
-   encrypted_password: '000000'
+   password: '000000'
 )
 
 Admin.create!(
    email: 'testc@testc.com',
-   encrypted_password: '111111'
+   password: '111111'
 )

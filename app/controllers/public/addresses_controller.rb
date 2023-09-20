@@ -10,7 +10,12 @@ class Public::AddressesController < ApplicationController
   def create
     @address = Address.new(address_params)
     @address.customer_id = current_customer.id
-    @address.save
+    if @address.save
+      redirect_to request.referer, notice: '配送先を追加しました'
+    else
+      @addresses = Address.page(params[:page])
+      render :index
+    end
   end
 
   def edit
@@ -19,12 +24,17 @@ class Public::AddressesController < ApplicationController
 
   def update
     @address = Address.find(params[:id])
-    @address.update(address_params)
+    if @address.update(address_params)
+      redirect_to addresses_path, notice: '配送先を編集しました'
+    else
+      render :edit
+    end
   end
 
   def destroy
     @address = Address.find(params[:id])
     @address.destroy
+    redirect_to request.referer, notice: '配送先を削除しました'
   end
 
   private

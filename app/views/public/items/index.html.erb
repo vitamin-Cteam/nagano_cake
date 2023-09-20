@@ -11,7 +11,7 @@
         <% if item.is_on_sale == true %>
           <p>¥<%= item.with_tax_price.to_s(:delimited) %></p>
         <% else %>
-          <p class="text-danger">SOLD OUT</p>
+          <p class="font-weight-bold">SOLD OUT</p>
         <% end %>
       </div>
     <% end %>

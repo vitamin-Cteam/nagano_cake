@@ -1,2 +1,43 @@
+<<<<<<< Updated upstream
 <h1>Admin::Items#show</h1>
 <p>Find me in app/views/admin/items/show.html.erb</p>
+=======
+<div class="container py-5">
+  <h3>商品詳細</h3>
+  <div class="row">
+    <%= image_tag @item.get_item_image(300,250) %>
+  <table class="table">
+    <tr>
+      <td>商品名</td>
+      <td><%= @item.name %></td>
+    <tr>
+      <td>商品説明</td>
+      <td><%= simple_format(@item.description) %></td>
+    </tr>
+    <tr>
+      <td>ジャンル</td>
+      <td><%= @item.genre.name %></td>
+    </tr>
+    <tr>
+      <td>
+        税込価格<br>
+        (税抜価格)
+      </td>
+      <td>
+        <%= number_to_currency(@item.with_tax_price, format: "%n") %>
+        (<%= number_to_currency(@item.price, format: "%n") %>)円
+      </td>
+    </tr>
+    <tr>
+      <td>販売ステータス</td>
+      <td>
+        <%= @item.is_on_sale ? '販売中' : '販売停止中' %>
+      </td>
+    </tr>
+  </table>
+  </div>
+  <div class="row justify-content-center">
+    <%= link_to '編集する', edit_admin_item_path(@item) %>
+  </div>
+</div>
+>>>>>>> Stashed changes

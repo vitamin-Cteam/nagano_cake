@@ -1,10 +1,5 @@
 Rails.application.routes.draw do
-  # 顧客用
-  # URL /customers/sign_in ...
-  devise_for :customers,skip: [:passwords], controllers: {
-    registrations: "public/registrations",
-    sessions: 'public/sessions'
-  }
+
 
   # 管理者用
   # URL /admin/sign_in ...
@@ -21,11 +16,20 @@ Rails.application.routes.draw do
     get "/customers/information/edit" => "customers#edit"
     get "/customers/confirm" => "customers#confirm"
     patch "/customers/withdraw" => "customers#withdraw"
-    resources :cart_items, only: [:index, :create, :update, :destroy]
     delete "/cart_items/destroy_all" => "cart_items#destroy_all"
+<<<<<<< Updated upstream
     resources :orders, only: [:index, :new, :show, :create]
     post "/orders/confirm" => "orders#confirm"
     get "/orders/complete" => "orders#complete"
+=======
+    resources :cart_items, only: [:index, :create, :update, :destroy]
+    resources :orders, only: [:new, :create, :index, :show] do
+      collection do
+        post 'confirm'
+        get 'complete'
+      end
+    end
+>>>>>>> Stashed changes
     resources :addresses, only: [:index, :edit, :create, :update, :destroy]
   end
 
@@ -37,6 +41,11 @@ Rails.application.routes.draw do
     resources :orders, only: [:show, :update]
     patch "/admin/order_details/:id" => "order_details#update" ,as: "order_details"
   end
-
+  # 顧客用
+  # URL /customers/sign_in ...
+  devise_for :customers,skip: [:passwords], controllers: {
+    registrations: "public/registrations",
+    sessions: 'public/sessions'
+  }
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end

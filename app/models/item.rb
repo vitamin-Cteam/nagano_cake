@@ -4,6 +4,11 @@ class Item < ApplicationRecord
   belongs_to :genre
 
   has_one_attached :item_image
+  validates :name, presence:true, uniqueness: true
+
+  validates :description, presence:true
+
+  validates :price, presence:true, numericality: {only_integer: true, greater_than_or_equal_to: 1}
 
     # 商品画像のサイズ調整
   def get_item_image(width, height)

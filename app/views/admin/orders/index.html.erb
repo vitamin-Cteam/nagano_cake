@@ -13,7 +13,7 @@
     <% @orders.each do |order| %>
       <tr>
         <td><u><%= link_to order.created_at.strftime("%Y/%m/%d %H:%M:%S"), admin_order_path(order), data: { turbolinks: false }, class: "text-reset" %></u></td>
-        <td><%= customer.last_name %><% customer.first_name %></td>
+        <td><%= @customer.last_name %><% @customer.first_name %></td>
         <td><%= calculate_order_amount(order) %></td>
         <td><%= order.status_i18n %></td>
       </tr>

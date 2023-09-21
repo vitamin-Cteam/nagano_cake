@@ -1,14 +1,7 @@
 <h2><%= "#{@customer.last_name}#{@customer.first_name}さんの会員情報編集" %></h2>
 
 <!--バリデーション部分-->
-<% if @customer.errors.any? %>
-  <%= @customer.errors.count %>件のエラーが発生しています。
-  <ul>
-    <% @customer.errors.full_messages.each do |message| %>
-      <li><%= message %></li>
-    <% end %>
-  </ul>
-<% end %>
+<%= render 'layouts/error', obj: @customer %>
 
 <!--form部分-->
 <%= form_with model: @customer, url: admin_customer_path(@customer), method: :patch do |f| %>

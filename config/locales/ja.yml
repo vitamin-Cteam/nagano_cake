@@ -10,6 +10,13 @@ ja:
           making: "製作中"
           preparing: "発送準備中"
           shipped: "発送済み"
+    activerecord:
+      attributes:
+        item:
+          name: "商品名"
+          description: "商品説明"
+          price: "税抜価格"
+          genre: "ジャンル"
     date:
       abbr_day_names:
       - 日

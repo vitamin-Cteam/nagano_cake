@@ -1,8 +1,8 @@
 <div class="container">
   <div class="row mb-2">
-    <h3 class="bg-secondary text-left">　ショッピングカート　</h3>
+    <h3 class="bg-secondary text-left">ショッピングカート</h3>
     <% if @cart_items.exists? %>
-      <%= link_to "カートを空にする", cart_items_destroy_all_path, method: :delete, class: "btn btn-danger ml-auto"%>
+      <%= link_to "カートを空にする", cart_items_destroy_all_path, method: :delete, class: "btn btn-danger ml-auto" %>
     <% end %>
   </div>
   <div class="row">
@@ -24,14 +24,14 @@
                   <%= cart_item.item.name %>
                 <% end %>
               </td>
-              <td class="align-middle"><%= cart_item.item.with_tax_price %></td>
+              <td class="align-middle">¥<%= cart_item.item.with_tax_price.to_s(:delimited) %></td>
               <td class="align-middle">
                 <%= form_with model: cart_item, method: :patch do |f| %>
                   <%= f.select :amount, *[1..10], selected: cart_item.amount %>
                   <%= f.submit "変更", class: "btn btn-sm btn-success" %>
                 <% end %>
               </td>
-              <td class="align-middle"><%= cart_item.subtotal %></td>
+              <td class="align-middle">¥<%= cart_item.subtotal.to_s(:delimited) %></td>
               <td class="align-middle"><%= link_to "削除する", cart_item_path(cart_item), method: :delete, class: "btn btn-danger" %></td>
             </tr>
           <% end %>

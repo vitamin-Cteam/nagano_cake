@@ -16,6 +16,7 @@ class Public::CartItemsController < ApplicationController
   def destroy_all
     current_customer.cart_items.destroy_all
     @cart_items = current_customer.cart_items.includes([:item])
+    @total_price = @cart_items.sum{|cart_item|cart_item.item.with_tax_price * cart_item.amount}
     flash.now[:notice] = "カートを空にしました"
     render :index
   end
@@ -24,6 +25,7 @@ class Public::CartItemsController < ApplicationController
     cart_item = current_customer.cart_items.find(params[:id])
     cart_item.destroy
     @cart_items = current_customer.cart_items.includes([:item])
+    @total_price = @cart_items.sum{|cart_item|cart_item.item.with_tax_price * cart_item.amount}
     flash.now[:notice] = "カートから商品を削除しました"
     render :index
   end

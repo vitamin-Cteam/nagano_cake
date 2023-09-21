@@ -4,10 +4,10 @@
 
       <h3 class="mt-3">会員のお客様</h3>
       <p>こちらからログインを行ってください。</p>
-
+      <%= form_with model: @customer, url: customer_session_path do |f| %>
       <div class="bg-white w-100 my-4 py-4">
         <p class="alert text-center text-danger"><%= alert %></p>
-        <%= form_with model: @customer, url: customer_session_path do |f| %>
+
         <table class="table table-borderless mb-1">
           <tr>
             <td class="text-right"><%= f.label :email, "メールアドレス" %></td>
@@ -25,9 +25,8 @@
 
         <div class="text-center mb-3">
           <%= f.submit "ログイン", class:"btn btn-sm btn-success text-light px-3" %>
-          <% end %>
         </div>
-
+        <% end %>
       <h4>初めてご利用の方</h4>
       <p>こちらから新規登録を行ってください。</p>
 

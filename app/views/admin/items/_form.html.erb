@@ -1,11 +1,6 @@
-<<<<<<< Updated upstream
-<%= form_with model: Item.new, url: admin_items_path, method: :post, local: true do |f| %>
-  <table>
-=======
 <div class="row justify-content-center">
 <%= form_with model: [ :admin, item ], local: true do |f| %>
   <table class="table table-borderless">
->>>>>>> Stashed changes
     <tr>
       <td><%= f.label :商品画像 %></td>
       <td><%= f.file_field :item_image, accept: "image/*" %></td>

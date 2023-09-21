@@ -17,11 +17,6 @@ Rails.application.routes.draw do
     get "/customers/confirm" => "customers#confirm"
     patch "/customers/withdraw" => "customers#withdraw"
     delete "/cart_items/destroy_all" => "cart_items#destroy_all"
-<<<<<<< Updated upstream
-    resources :orders, only: [:index, :new, :show, :create]
-    post "/orders/confirm" => "orders#confirm"
-    get "/orders/complete" => "orders#complete"
-=======
     resources :cart_items, only: [:index, :create, :update, :destroy]
     resources :orders, only: [:new, :create, :index, :show] do
       collection do
@@ -29,7 +24,6 @@ Rails.application.routes.draw do
         get 'complete'
       end
     end
->>>>>>> Stashed changes
     resources :addresses, only: [:index, :edit, :create, :update, :destroy]
   end
 

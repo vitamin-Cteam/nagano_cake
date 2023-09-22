@@ -1,5 +1,11 @@
-<h2>注文履歴詳細</h2>
+<div class="container py-5">
+  <div class="row mt-2 mb-3 offset-1 text-center">
+    <h2 class="px-4 title-background">注文履歴詳細</h2>
+  </div>
 
-<%= render 'show', order: @order ,customer: @customer %>
-<%= render 'order_detail', order: @order, order_details: @order_details %>
-<%= render 'order_total_amount', order: @order %>
+  <%= render 'show', order: @order ,customer: @customer %>
+  <div class="row py-5 text-nowrap">
+    <%= render 'order_detail', order: @order, order_details: @order_details %>
+    <%= render 'order_total_amount', order: @order %>
+  </div>
+</div>

@@ -1,4 +1,5 @@
-<table>
+<div class="col-7 mx-auto">
+<table class="table table-list">
   <thead>
     <tr>
       <th class="text-left">商品名</th>
@@ -10,17 +11,16 @@
   </thead>
   <tbody>
     <% order_details.each do |order_details| %>
-      <%= form_with model: [order, order_details], url: admin_order_detail_path(order, order_details) do |f| %>
-        <tr>
+      <%= form_with model: [order, order_details], url: admin_order_details_path(order, order_details) do |f| %>
+        <tr class="align-items-center">
           <td class="text-left"><%= order_details.item.name %></td>
           <td><%= order_details.price.to_s(:delimited) %></td>
           <td><%= order_details.amount %></td>
-          <td><%= calculate_subtotal(order_details).to_s(:delimited) %></td>
-          <td><%= f.select :production_status, options_for_select(production_status_options(order_details)), class: "form-control" %></td>
+          <td><%= (order_details.price * order_details.amount).to_s(:delimited) %></td>
           <td>
-            <%= production_status_display(order_details) %>
-            <% if order_details.production_status == "waiting" || order_details.production_status == "producting" %>
-              <%= f.submit "更新", class: "btn btn-sm btn-success" %>
+            <%= form_with model: order_details, url: admin_order_details_path(order_details), method: :patch do |f| %>
+              <%= f.select :production_status, OrderDetail.production_statuses_i18n.invert %>
+              <%= f.submit "更新" , class: "btn btn-sm btn-success" %>
             <% end %>
           </td>
         </tr>
@@ -28,3 +28,4 @@
     <% end %>
   </tbody>
 </table>
+</div>

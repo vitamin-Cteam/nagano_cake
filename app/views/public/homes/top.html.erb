@@ -1,2 +1,55 @@
-<h1>Public::Homes#top</h1>
-<p>Find me in app/views/public/homes/top.html.erb</p>
+<style>
+  .box1{
+    background-color:#FFD5EC;
+  }
+  .box2{
+    background-color:#FFBEDA;
+  }
+</style>
+
+<div class="container pt-5 pb-5">
+  <div class="row">
+    <div class="box1 col-2">
+      <div class="d-flex justify-content-center" >
+        <p style="font-size:20px;">ジャンル検索</p>
+      </div>
+      <% @genres.each do |genre| %>
+        <ul style="list-style: none;">
+          <li><strong><%= link_to genre.name %></strong></li>
+        </ul>
+      <% end %>
+    </div>
+    <div class="box2 col-10">
+      <div class="card">
+        <%= image_tag 'cake2.jpg',class: "card-img" %>
+          <div class="card-img-overlay">
+            <p style="font-size:24px;">
+              ようこそ、ながのCAKEへ！<br>
+              このサイトは、ケーキ販売ECサイトになります。<br>
+              会員でない方も商品の閲覧はできますが、<br>
+              購入には会員登録が必要になります。<br>
+            </p>
+          </div>
+      </div>
+      <h3 class="mt-3">新着商品</h3>
+      <div class="d-flex justify-content-center" >
+        <% @items.each do |item| %>
+          <div class="mx-2 mb-4">
+            <%= link_to item_path(item.id) do %>
+              <%= image_tag item.get_item_image(240, 160), style: "object-fit: cover; width: 210px; height: 160px;" %>
+            <% end %>
+              <p><%= item.name %></p>
+            <% if item.is_on_sale == true %>
+              <p>¥<%= item.with_tax_price.to_s(:delimited) %></p>
+            <% else %>
+              <p class="font-weight-bold">SOLD OUT</p>
+            <% end %>
+          </div>
+        <% end %>
+      </div>
+      <div class="row justify-content-end">
+        <%= link_to '全ての商品を見る>', items_path %>
+      </div>
+    </div>
+  </div>
+</div>

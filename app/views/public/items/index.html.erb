@@ -1,11 +1,11 @@
 <div class="container">
   <h1>商品一覧</h1>
-  <span>（全<%= @items.count %>件）</span>
+  <span>（全<%= @all_items.count %>件）</span>
   <div class="d-flex flex-wrap">
     <% @items.each do |item| %>
-      <div class="mx-1 mb-3">
+      <div class="mx-2 mb-4">
         <%= link_to item_path(item.id) do %>
-          <%= image_tag item.get_item_image(180, 120) %>
+          <%= image_tag item.get_item_image(240, 160), style: "object-fit: cover; width: 240px; height: 160px;" %>
         <% end %>
         <p><%= item.name %></p>
         <% if item.is_on_sale == true %>

@@ -1,14 +1,7 @@
 <h2>ジャンル一覧・追加</h2>
 
 <!--バリデーション部分-->
-<% if @genre.errors.any? %>
-  <%= @genre.errors.count %>件のエラーが発生しています。
-  <ul>
-    <% @genre.errors.full_messages.each do |message| %>
-      <li><%= message %></li>
-    <% end %>
-  </ul>
-<% end %>
+<%= render 'layouts/error', obj: @genre %>
 
 <!--form部分-->
 <%=form_with model: @genre,url: admin_genres_path, method: :post do |f| %>

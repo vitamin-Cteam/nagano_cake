@@ -13,13 +13,13 @@
     <tr>
       <td class="text-right"><%= f.label :name, "宛名" %></td>
       <td><%= f.text_field :name, placeholder: "令和道子", class: "form-control w-75" %></td>
-      <% if local_assigns[:edit_flag].present? %>
+      <% if address.new_record? %>
         <td>
-          <%= f.submit "変更内容を保存", class:"btn btn-success" %>
+          <%= f.submit "新規登録", class:"btn btn-success" %>
         </td>
       <% else %>
         <td>
-          <%= f.submit "新規登録", class:"btn btn-success" %>
+          <%= f.submit "変更内容を保存", class:"btn btn-success" %>
         </td>
       <% end %>
     </tr>

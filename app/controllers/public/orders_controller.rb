@@ -27,7 +27,7 @@ class Public::OrdersController < ApplicationController
   when "registered_address"
     unless params[:order][:registered_address_id] == ""
       selected = Address.find(params[:order][:registered_address_id])
-      @selected_address = selected.post_code + " " + selected.address + " " + selected.name
+      @selected_address = selected.postal_code + " " + selected.address + " " + selected.name
     else
       flash.now[:notice] = "お届け先を選択してください"
       render :new
@@ -85,8 +85,8 @@ class Public::OrdersController < ApplicationController
     @cart_items.destroy_all
     redirect_to complete_orders_path
   else
-    flash.now[:notice] = "注文が確定できませんでした。もう一度やり直してください。"
-    render :items
+    flash[:notice] = "注文が確定できませんでした。もう一度やり直してください。"
+    redirect_to new_order_path
   end
 
 

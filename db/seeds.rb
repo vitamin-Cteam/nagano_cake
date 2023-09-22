@@ -47,28 +47,80 @@ Item.create!(
       name: 'ケーキ',
       description: 'test',
       price: 1000,
-      is_on_sale: true
+      is_on_sale: true,
+      item_image: ActiveStorage::Blob.create_and_upload!(io: File.open(Rails.root.join("app/assets/images/cake1.jpg")),filename: 'no_image.jpg')
     },
     {
       genre_id: 2,
       name: '焼き菓子',
       description: 'test',
       price: 1000,
-      is_on_sale: true
+      is_on_sale: true,
+      item_image: ActiveStorage::Blob.create_and_upload!(io: File.open(Rails.root.join("app/assets/images/bakedsweets1.jpg")),filename: 'no_image.jpg')
     },
     {
       genre_id: 3,
       name: 'プリン',
       description: 'test',
       price: 1000,
-      is_on_sale: true
+      is_on_sale: true,
+      item_image: ActiveStorage::Blob.create_and_upload!(io: File.open(Rails.root.join("app/assets/images/pudding1.jpg")),filename: 'no_image.jpg')
     },
     {
       genre_id: 4,
       name: 'キャンディ',
       description: 'test',
       price: 1000,
-      is_on_sale: false
+      is_on_sale: false,
+      item_image: ActiveStorage::Blob.create_and_upload!(io: File.open(Rails.root.join("app/assets/images/candy1.jpg")),filename: 'no_image.jpg')
+    },
+    {
+      genre_id: 1,
+      name: 'ケーキ',
+      description: 'test',
+      price: 1000,
+      is_on_sale: true,
+      item_image: ActiveStorage::Blob.create_and_upload!(io: File.open(Rails.root.join("app/assets/images/cake2.jpg")),filename: 'no_image.jpg')
+    },
+    {
+      genre_id: 2,
+      name: '焼き菓子',
+      description: 'test',
+      price: 1000,
+      is_on_sale: true,
+      item_image: ActiveStorage::Blob.create_and_upload!(io: File.open(Rails.root.join("app/assets/images/bakedsweets2.jpg")),filename: 'no_image.jpg')
+    },
+    {
+      genre_id: 3,
+      name: 'プリン',
+      description: 'test',
+      price: 1000,
+      is_on_sale: false,
+      item_image: ActiveStorage::Blob.create_and_upload!(io: File.open(Rails.root.join("app/assets/images/pudding2.jpg")),filename: 'no_image.jpg')
+    },
+    {
+      genre_id: 4,
+      name: 'キャンディ',
+      description: 'test',
+      price: 1000,
+      is_on_sale: true,
+      item_image: ActiveStorage::Blob.create_and_upload!(io: File.open(Rails.root.join("app/assets/images/candy2.jpg")),filename: 'no_image.jpg')
+    },
+    {
+      genre_id: 1,
+      name: 'ケーキ',
+      description: 'test',
+      price: 1000,
+      is_on_sale: true,
+      item_image: ActiveStorage::Blob.create_and_upload!(io: File.open(Rails.root.join("app/assets/images/cake3.jpg")),filename: 'no_image.jpg')
+    },
+    {
+      genre_id: 2,
+      name: '焼き菓子',
+      description: 'test',
+      price: 1000,
+      is_on_sale: false,
+      item_image: ActiveStorage::Blob.create_and_upload!(io: File.open(Rails.root.join("app/assets/images/bakedsweets3.jpg")),filename: 'no_image.jpg')
     }
   ]
 )

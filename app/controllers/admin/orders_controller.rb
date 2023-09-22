@@ -6,8 +6,7 @@ class Admin::OrdersController < ApplicationController
   end
 
   def index
-    @customer = Customer.find(params[:id])
-    @orders = @customer.orders.all
+    @orders = Order.all
   end
 
   def update

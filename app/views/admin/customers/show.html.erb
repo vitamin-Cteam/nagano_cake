@@ -1,45 +1,50 @@
-<h2><%= "#{@customer.last_name}#{@customer.first_name}さんの会員詳細" %></h2>
+<div class="container py-5">
+  <div class="row">
+    <div class="col-11 mx-auto"><h2><%= "#{@customer.last_name}#{@customer.first_name}さんの会員詳細" %></h2>
 
-<table class="table">
-  <tr>
-    <td>会員ID</td>
-    <td><%= @customer.id %></td>
-  </tr>
-  <tr>
-    <td>氏名</td>
-    <td><%= @customer.last_name %> <%= @customer.first_name %></td>
-  </tr>
-  <tr>
-    <td>フリガナ</td>
-    <td><%= @customer.last_name_kana %> <%= @customer.first_name_kana %></td>
-  </tr>
-  <tr>
-    <td>郵便番号</td>
-    <td><%= @customer.postal_code %></td>
-  </tr>
-  <tr>
-    <td>住所</td>
-    <td><%= @customer.address %></td>
-  </tr>
-  <tr>
-    <td>電話番号</td>
-    <td><%= @customer.telephone_number %></td>
-  </tr>
-  <tr>
-    <td>メールアドレス</td>
-    <td><%= @customer.email %></td>
-  </tr>
-  <tr>
-    <td>会員ステータス</td>
-    <td>
-      <% if @customer.is_active == true %>
-        <p>有効</p>
-      <% else %>
-        <p>退会</p>
-      <% end %>
-    </td>
-  </tr>
-</table>
+      <table class="table">
+        <tr>
+          <td>会員ID</td>
+          <td><%= @customer.id %></td>
+        </tr>
+        <tr>
+          <td>氏名</td>
+          <td><%= @customer.last_name %> <%= @customer.first_name %></td>
+        </tr>
+        <tr>
+          <td>フリガナ</td>
+          <td><%= @customer.last_name_kana %> <%= @customer.first_name_kana %></td>
+        </tr>
+        <tr>
+          <td>郵便番号</td>
+          <td><%= @customer.postal_code %></td>
+        </tr>
+        <tr>
+          <td>住所</td>
+          <td><%= @customer.address %></td>
+        </tr>
+        <tr>
+          <td>電話番号</td>
+          <td><%= @customer.telephone_number %></td>
+        </tr>
+        <tr>
+          <td>メールアドレス</td>
+          <td><%= @customer.email %></td>
+        </tr>
+        <tr>
+          <td>会員ステータス</td>
+          <td>
+            <% if @customer.is_active == true %>
+              <p>有効</p>
+            <% else %>
+              <p>退会</p>
+            <% end %>
+          </td>
+        </tr>
+      </table>
 
-<%= link_to "編集する", edit_admin_customer_path(@customer), class: "btn btn-success" %>
-<%= link_to "注文履歴一覧を見る", admin_orders_path, class: "btn btn-primary" %>
+      <%= link_to "編集する", edit_admin_customer_path(@customer), class: "btn btn-success" %>
+      <%= link_to "注文履歴一覧を見る", admin_orders_path, class: "btn btn-primary" %>
+    </div>
+  </div>
+</div>

@@ -2,7 +2,7 @@ class Admin::CustomersController < ApplicationController
   before_action :get_customer_id, only: [:show, :edit, :update] #下記記載のget_customer_idアクションが指定のアクションに適用
 
   def index
-    @customers = Customer.all
+    @customers = Customer.page(params[:page]).per(10)
   end
 
   def show

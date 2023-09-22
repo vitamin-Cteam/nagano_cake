@@ -85,8 +85,8 @@ class Public::OrdersController < ApplicationController
     @cart_items.destroy_all
     redirect_to complete_orders_path
   else
-    flash.now[:notice] = "注文が確定できませんでした。もう一度やり直してください。"
-    render :items
+    flash[:notice] = "注文が確定できませんでした。もう一度やり直してください。"
+    redirect_to new_order_path
   end
 
 

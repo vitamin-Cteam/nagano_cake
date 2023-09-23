@@ -1,10 +1,10 @@
 <div class="container">
   <div class="row">
     <div class="col">
-      <h4 class="my-5">会員情報編集</h4>
-      
+      <h3 class="my-5">会員情報編集</h3>
+
       <%= form_with model: @customer, url: customers_path, method: :patch do |f| %>
-      
+      <%= render 'layouts/error', obj: @customer %>
         <table class="table table-borderless">
           <tr>
             <td>氏名</td>

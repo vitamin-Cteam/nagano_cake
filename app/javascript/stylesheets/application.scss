@@ -44,3 +44,36 @@
     border: 3px solid #3B240B; //アウトラインのみのボタンの線の色
     color: white; //アウトラインのみのボタンのテキストの色
 }
+
+.pagination{
+  width: fit-content;
+  margin: 25px auto;
+  font-size: 0.8rem;
+  line-height: 2rem;
+}
+
+.first a,
+.prev a,
+.page a,
+.next a,
+.last a{
+  color: #3B240B !important;
+  text-decoration: none;
+  padding: 5px;
+  margin: 2px;
+  border: 1px solid rgba(59, 36, 11, 0.7);
+}
+
+.first a:hover,
+.prev a:hover,
+.page a:hover,
+.next a:hover,
+.last a:hover{
+  border: 1px solid rgba(59, 36, 11, 0.7);
+  background-color: #F5A9A9;
+  color: #3B240B;
+}
+
+span.current{
+  color: #3B240B;
+}

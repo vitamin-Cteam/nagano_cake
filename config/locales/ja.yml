@@ -36,6 +36,12 @@ ja:
           telephone_number: "電話番号"
           password: "パスワード"
           password_confirmation: "パスワード（確認用）"
+    activerecord:
+      attributes:
+        address:
+          postal_code: "郵便番号"
+          address: "住所"
+          name: "宛名"
     date:
       abbr_day_names:
       - 日
@@ -210,3 +216,10 @@ ja:
         long: "%Y/%m/%d %H:%M"
         short: "%m/%d %H:%M"
       pm: 午後
+    views:
+      pagination:
+        first: <i class="fas fa-angle-double-left"></i>
+        last: <i class="fas fa-angle-double-right"></i>
+        previous: <i class="fas fa-angle-left"></i>
+        next: <i class="fas fa-angle-right"></i>
+        truncate: "..."

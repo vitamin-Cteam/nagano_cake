@@ -3,7 +3,7 @@
     <div class="row mx-auto">
       <div class="col-3">
         <%= link_to root_path do %>
-          <%= image_tag 'logo.jpg', style: "object-fit: cover; width: 150px; height: 60px;" %>
+          <%= image_tag 'logo_c.jpg', style: "object-fit: cover; width: 150px; height: 80px;" %>
         <% end %>
       </div>
       <div class="col-3 mt-3 text-right">
@@ -41,7 +41,7 @@
             </li>
             <li class="nav-item mx-2 mt-2">
               <i class="fa-solid fa-cart-flatbed-suitcase"></i>
-              <%= link_to "注文履歴一覧", admin_root_path, class: "text-decoration-none align-middle", style: "color: #3B240B" %>
+              <%= link_to "注文履歴一覧", admin_orders_path, class: "text-decoration-none align-middle", style: "color: #3B240B" %>
             </li>
             <li class="nav-item mx-2 mt-2">
               <i class="fa-solid fa-cookie-bite"></i>

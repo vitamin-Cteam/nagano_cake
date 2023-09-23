@@ -37,15 +37,16 @@
         </tr>
       </table>
 
-      <h4>支払い方法</h4>
+      <h4>[支払い方法]</h4>
 
       <% if @selected_payment_method == "credit_card" %>
         クレジットカード
       <% else %>
         銀行振込
       <% end %>
-
-      <h4>お届け先</h4>
+      <br>
+      <br>
+      <h4>[お届け先]</h4>
       <%= @selected_address %>
 
       <%= form_with url: orders_path, method: :post do %>
@@ -60,6 +61,7 @@
           <%= hidden_field_tag 'order[new_address]', params[:order][:new_address] %>
           <%= hidden_field_tag 'order[new_name]', params[:order][:new_name] %>
         <% end %>
+        <br>
         <%= submit_tag "注文を確定する", class: "btn btn-success" %>
       <% end %>
     </div>

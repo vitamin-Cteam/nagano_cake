@@ -4,6 +4,9 @@ class Public::OrdersController < ApplicationController
   def new
   end
 
+  def error 
+  end
+
   def confirm
     @cart_items = CartItem.where(customer_id: current_customer.id)
     @shipping_cost = 800
@@ -15,32 +18,31 @@ class Public::OrdersController < ApplicationController
     ary = []
     @cart_items.each do |cart_item|
       ary << cart_item.item.with_tax_price*cart_item.amount
-  end
+    end
     @cart_items_price = ary.sum
 
     @billing_amount = @shipping_cost + @cart_items_price
 
     @address_type = params[:order][:address_type]
-  case @address_type
-  when "customer_address"
-    @selected_address = current_customer.postal_code + " " + current_customer.address + " " + current_customer.last_name + current_customer.first_name
-  when "registered_address"
-    unless params[:order][:registered_address_id] == ""
-      selected = Address.find(params[:order][:registered_address_id])
-      @selected_address = selected.postal_code + " " + selected.address + " " + selected.name
-    else
-      flash.now[:notice] = "お届け先を選択してください"
-      render :new
+    case @address_type
+    when "customer_address"
+      @selected_address = current_customer.postal_code + " " + current_customer.address + " " + current_customer.last_name + current_customer.first_name
+    when "registered_address"
+      unless params[:order][:registered_address_id] == ""
+        selected = Address.find(params[:order][:registered_address_id])
+        @selected_address = selected.postal_code + " " + selected.address + " " + selected.name
+      else
+        flash.now[:notice] = "お届け先を選択してください"
+        render :new
+      end
+    when "new_address"
+      unless params[:order][:new_postal_code] == "" && params[:order][:new_address] == "" && params[:order][:new_name] == ""
+        @selected_address = params[:order][:new_postal_code] + " " + params[:order][:new_address] + " " + params[:order][:new_name]
+      else
+        flash.now[:notice] = "お届け先を記入してください"
+        render :new
+      end
     end
-  when "new_address"
-    unless params[:order][:new_postal_code] == "" && params[:order][:new_address] == "" && params[:order][:new_name] == ""
-      @selected_address = params[:order][:new_postal_code] + " " + params[:order][:new_address] + " " + params[:order][:new_name]
-    else
-      flash.now[:notice] = "お届け先を記入してください"
-      render :new
-    end
-  end
-
 
   end
 

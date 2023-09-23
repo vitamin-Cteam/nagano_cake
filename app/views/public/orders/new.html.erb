@@ -2,9 +2,9 @@
   <div class="row">
 
     <div class="col-12">
-      <h3 class="mb-3 border-bottom border-dark pb-3 text-secondary">注文情報入力</h3>
+      <h3 class="mb-3 border-bottom border-dark pb-3">注文情報入力</h3>
     </div>
-    <%= form_with model: Order.new, url: confirm_orders_path, local:true do |f|  %>
+    <%= form_with model: Order.new, url: orders_confirm_path, local:true do |f|  %>
     <div class="col-12">
       <div class="mb-3">
       <h5>お支払い方法</h5>
@@ -37,7 +37,8 @@
       <%= f.label :address_type, "新しいお届け先" %>
 
       <div class="col-md-3">
-        郵便番号(ハイフンなし)
+        郵便番号<br>
+        (ハイフンなし)
       </div>
       <div class="col-md-3 ml-1">
         <%= f.text_field :new_postal_code, placeholder: "0000000", class: "mt-1" %>

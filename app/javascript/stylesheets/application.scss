@@ -1,1 +1,46 @@
 @use '~bootstrap/scss/bootstrap';
+
+.table {
+    color: #3B240B !important;
+}
+
+.table-bordered > tbody > tr > td {
+    border: 1px solid #3B240B !important;
+    color: #3B240B !important;
+}
+
+.table-bordered > thead > tr > th {
+    border: 1px solid #3B240B !important;
+    color: #3B240B !important;
+}
+
+.table-bordered > thead {
+  border-bottom: 2px solid #3B240B !important;
+}
+
+.btn-dark {
+    border: 0 none;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    background-color: #3B240B;
+    color: white
+}
+
+.btn-dark:hover, .btn-dark:focus,
+.btn-dark:active, .btn-dark:active:focus, .btn-dark:active:hover, .btn-dark:active.focus,
+.btn-dark.active, .btn-dark.active:focus, .btn-dark.active:hover, .btn-dark.active.focus,
+.open > .dropdown-toggle.btn-dark,
+.open > .dropdown-toggle.btn-dark:hover,
+.open > .dropdown-toggle.btn-dark:focus,
+.open > .dropdown-toggle.btn-dark.focus,
+.btn-dark.disabled:hover, .btn-dark[disabled]:hover, fieldset[disabled] .btn-dark:hover,
+.btn-dark.disabled:focus, .btn-dark[disabled]:focus, fieldset[disabled] .btn-dark:focus,
+.btn-dark.disabled.focus, .btn-dark[disabled].focus, fieldset[disabled] .btn-dark.focus {
+    background: #3B240B; //ボタンの上にポインタを持ってきたり、クリックしたりした時の背景色
+    color: white; //ボタンの上にポインタを持ってきたり、クリックしたりした時のテキストの色
+}
+
+.btn-dark.outline {
+    border: 3px solid #3B240B; //アウトラインのみのボタンの線の色
+    color: white; //アウトラインのみのボタンのテキストの色
+}

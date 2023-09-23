@@ -11,7 +11,7 @@
         <%= form_with model: CartItem.new do |f| %>
           <%= f.select :amount, *[1..10], { prompt: '個数選択' } %>
           <%= f.hidden_field :item_id, :value => @item.id %>
-          <%= f.submit "カートに入れる", class: "btn btn-sm", style: "background-color: #3B240B; color: white" %>
+          <%= f.submit "カートに入れる", class: "btn btn-sm" %>
         <% end %>
       <% else %>
         <p class="text-danger font-weight-bold">SOLD OUT</p>

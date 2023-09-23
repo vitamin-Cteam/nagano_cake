@@ -6,7 +6,7 @@
           <%= image_tag 'logo.jpg', style: "object-fit: cover; width: 150px; height: 60px;" %>
         <% end %>
       </div>
-      <div class="col-3 mt-4 text-right text-light">
+      <div class="col-3 mt-3 text-right">
         <% if customer_signed_in?%>
           <p><%= "ようこそ、#{current_customer.last_name}#{current_customer.first_name}さん！" %></p>
         <% end %>
@@ -14,57 +14,57 @@
       <div class="col-6">
         <ul class="row justify-content-end my-2 list-unstyled">
           <% if customer_signed_in? %>
-            <li class="nav-item mx-2 ">
+            <li class="nav-item mx-2 mt-2">
               <i class="fa-regular fa-user"></i>
               <%= link_to "マイページ", customers_path, class: "text-decoration-none align-middle", style: "color: #3B240B" %>
             </li>
-            <li class="nav-item mx-2">
+            <li class="nav-item mx-2 mt-2">
               <i class="fa-solid fa-cake-candles"></i>
               <%= link_to "商品一覧", items_path, class: "text-decoration-none align-middle", style: "color: #3B240B" %>
             </li>
-            <li class="nav-item mx-2">
+            <li class="nav-item mx-2 mt-2">
               <i class="fa-solid fa-cart-shopping"></i>
               <%= link_to "カート", cart_items_path, class: "text-decoration-none align-middle", style: "color: #3B240B" %>
             </li>
-            <li class="nav-item mx-2">
+            <li class="nav-item mx-2 mt-2">
               <i class="fa-solid fa-right-from-bracket"></i>
               <%= link_to "ログアウト", destroy_customer_session_path, method: :delete, class: "text-decoration-none align-middle", style: "color: #3B240B" %>
             </li>
           <% elsif admin_signed_in? %>
-            <li class="nav-item mx-2">
+            <li class="nav-item mx-2 mt-2">
               <i class="fa-solid fa-cake-candles"></i>
               <%= link_to "商品一覧", admin_items_path, class: "text-decoration-none align-middle", style: "color: #3B240B" %>
             </li>
-            <li class="nav-item mx-2">
+            <li class="nav-item mx-2 mt-2">
               <i class="fa-solid fa-users"></i>
               <%= link_to "会員一覧", admin_customers_path, class: "text-decoration-none align-middle", style: "color: #3B240B" %>
             </li>
-            <li class="nav-item mx-2">
+            <li class="nav-item mx-2 mt-2">
               <i class="fa-solid fa-cart-flatbed-suitcase"></i>
               <%= link_to "注文履歴一覧", admin_root_path, class: "text-decoration-none align-middle", style: "color: #3B240B" %>
             </li>
-            <li class="nav-item mx-2">
+            <li class="nav-item mx-2 mt-2">
               <i class="fa-solid fa-cookie-bite"></i>
               <%= link_to "ジャンル一覧", admin_genres_path, class: "text-decoration-none align-middle", style: "color: #3B240B" %>
             </li>
-            <li class="nav-item mx-2">
+            <li class="nav-item mx-2 mt-2">
               <i class="fa-solid fa-right-from-bracket"></i>
               <%= link_to "ログアウト", destroy_admin_session_path, method: :delete, class: "text-decoration-none align-middle", style: "color: #3B240B" %>
             </li>
           <% else %>
-            <li class="nav-item mx-2">
+            <li class="nav-item mx-2 mt-2">
               <i class="fa-solid fa-store"></i>
               <%= link_to "About", about_path, class: "text-decoration-none align-middle align-middle", style: "color: #3B240B" %>
             </li>
-            <li class="nav-item mx-2">
+            <li class="nav-item mx-2 mt-2">
               <i class="fa-solid fa-cake-candles"></i>
               <%= link_to "商品一覧", items_path, class: "text-decoration-none align-middle", style: "color: #3B240B" %>
             </li>
-            <li class="nav-item mx-2">
+            <li class="nav-item mx-2 mt-2">
               <i class="fa-regular fa-handshake"></i>
               <%= link_to "新規登録", new_customer_registration_path, class: "text-decoration-none align-middle", style: "color: #3B240B" %>
             </li>
-            <li class="nav-item mx-2">
+            <li class="nav-item mx-2 mt-2">
               <i class="fa-solid fa-right-to-bracket"></i>
               <%= link_to "ログイン", new_customer_session_path, class: "text-decoration-none align-middle", style: "color: #3B240B" %>
             </li>

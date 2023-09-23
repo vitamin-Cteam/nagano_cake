@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html class="h-100">
   <head>
     <title>NaganoCake</title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
@@ -7,13 +7,19 @@
     <%= csp_meta_tag %>
 
     <script src="https://kit.fontawesome.com/e8ca5afb42.js" crossorigin="anonymous"></script>
+    <%# ↓ここから %>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Kiwi+Maru&display=swap" rel="stylesheet">
+    <%# ↑ここまでGoogle Font導入 %>
     <%= stylesheet_pack_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
-  <body style="color: #3B240B; background-color: #F6D8CE;">
+  <body class="d-flex flex-column h-100" style="color: #3B240B; background-color: #F6D8CE; font-family: 'Kiwi Maru', serif;">
+    <%# ↑の行のfont-familyでフォント名を指定 %>
     <%= render 'layouts/header' %>
-    <main>
+    <main class="container flex-shrink-0">
       <%= flash[:notice] %>
       <%= flash[:alert] %>
       <%= yield %>

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html class="h-100">
   <head>
     <title>NaganoCake</title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
@@ -16,10 +16,10 @@
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
-  <body style="color: #3B240B; background-color: #F6D8CE; font-family: 'Kiwi Maru', serif;">
+  <body class="d-flex flex-column h-100" style="color: #3B240B; background-color: #F6D8CE; font-family: 'Kiwi Maru', serif;">
     <%# ↑の行のfont-familyでフォント名を指定 %>
     <%= render 'layouts/header' %>
-    <main>
+    <main class="container flex-shrink-0">
       <%= flash[:notice] %>
       <%= flash[:alert] %>
       <%= yield %>

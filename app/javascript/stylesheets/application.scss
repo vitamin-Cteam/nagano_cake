@@ -44,3 +44,18 @@
     border: 3px solid #3B240B; //アウトラインのみのボタンの線の色
     color: white; //アウトラインのみのボタンのテキストの色
 }
+
+.main-visual {
+    display: inline-block;
+    height: 600px;
+    text-align: center;
+    background-color: rgba(0,0,0,0.5);
+}
+
+.main-visual-cover {
+    text-align: start;
+    background-size: cover;
+    background-position: center;
+    height: 600px;
+    background-image: url(../images/cake2.jpg);
+}

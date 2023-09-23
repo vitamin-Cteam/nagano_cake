@@ -9,6 +9,12 @@ class Admin::OrdersController < ApplicationController
     @orders = Order.page(params[:page]).per(10)
   end
 
+  def detail
+    @order = Order.find(params[:id])
+    @customer = @order.customer
+    @orders = @customer.orders.page(params[:page]).order(created_at: :desc)
+  end
+
   def update
     @order = Order.find(params[:id])
     @order_details = OrderDetail.where(order_id: params[:id])

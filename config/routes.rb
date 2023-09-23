@@ -26,6 +26,7 @@ Rails.application.routes.draw do
     end
     resources :addresses, only: [:index, :edit, :create, :update, :destroy]
   end
+  get '/genre/search' => 'searches#genre_search'
 
   namespace :admin do
     root to: "homes#top"

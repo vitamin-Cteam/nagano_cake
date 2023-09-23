@@ -4,12 +4,12 @@
       <h3>注文履歴一覧</h3>
       <table class="table table-bordered">
         <tr>
-          <td>注文日</td>
-          <td>配送先</td>
-          <td>注文商品</td>
-          <td>支払い金額</td>
-          <td>ステータス</td>
-          <td>注文詳細</td>
+          <td><div class="text-center">注文日</div></td>
+          <td><div class="text-center">配送先</div></td>
+          <td><div class="text-center">注文商品</div></td>
+          <td><div class="text-center">支払い金額</div></td>
+          <td><div class="text-center">ステータス</div></td>
+          <td><div class="text-center">注文詳細</div></td>
         </tr>
         <% @orders.each do |order| %>
       <tr>
@@ -22,9 +22,9 @@
             <% end %>
           </ul>
         </td>
-        <td><%= order.billing_amount.to_s(:delimited) %>円</td>
-        <td><%= order.status_i18n %></td>
-        <td><%= link_to "表示する", order_path(order.id), class: "btn btn-dark" %></td>
+        <td>¥<%= order.billing_amount.to_s(:delimited) %></td>
+        <td><div class="text-center"><%= order.status_i18n %></div></td>
+        <td><div class="text-center"><%= link_to "表示する", order_path(order.id), class: "btn btn-dark" %></div></td>
       </tr>
       <% end %>
       </table>

@@ -18,9 +18,9 @@
                 &ensp;&ensp;&ensp;
                 <strong><%= cart_item.item.name %></strong>
             </td>
-            <td><div class="text-center mt-4"><%= cart_item.item.with_tax_price.to_s(:delimited) %>円</div></td>
+            <td><div class="text-center mt-4">¥<%= cart_item.item.with_tax_price.to_s(:delimited) %></div></td>
             <td><div class="text-center mt-4"><%= cart_item.amount %></div></td>
-            <td><div class="text-center mt-4"><%= (cart_item.item.with_tax_price*cart_item.amount).to_s(:delimited) %>円</div></td>
+            <td><div class="text-center mt-4">¥<%= (cart_item.item.with_tax_price*cart_item.amount).to_s(:delimited) %></div></td>
           </tr>
         <% end %>
       </table>
@@ -29,15 +29,15 @@
       <table class="table table-bordered">
         <tr>
           <td><div class="text-center">送料</div></td>
-          <td><div class="text-center"><%= @shipping_cost.to_s(:delimited)  %>円</div></td>
+          <td><div class="text-center">¥<%= @shipping_cost.to_s(:delimited) %></div></td>
         </tr>
         <tr>
           <td><div class="text-center">商品合計</div></td>
-          <td><div class="text-center"><%= @cart_items_price.to_s(:delimited) %>円</div></td>
+          <td><div class="text-center">¥<%= @cart_items_price.to_s(:delimited) %></div></td>
         </tr>
         <tr>
           <td><div class="text-center">請求額</div></td>
-          <td><div class="text-center"><%= @billing_amount.to_s(:delimited) %>円</div></td>
+          <td><div class="text-center">¥<%= @billing_amount.to_s(:delimited) %></div></td>
         </tr>
       </table>
     </div>
@@ -61,7 +61,7 @@
     <%= form_with url: orders_path, method: :post do %>
 
       <%= hidden_field_tag 'order[payment_method]', @selected_payment_method %>
-      <%= hidden_field_tag 'order[address_type]', @address_type %>
+      <%= hidden_field_tag 'order[address_type]', @address_type %>様
 
       <% if @address_type == "registered_address" %>
         <%= hidden_field_tag 'order[registered_address_id]', params[:order][:registered_address_id] %>

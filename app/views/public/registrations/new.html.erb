@@ -6,13 +6,12 @@
       <h3 class="mt-3 mb-3">初めてご利用の方</h3>
         <p class="mb-5">こちらから会員登録を行ってください。</p>
     </div>
-
-    <div class="bg-white py-4 mx-auto w-100 px-2">
+    <%= form_with model:@customer, url: customer_registration_path do |f| %>
+    <div class="py-4 mx-auto w-100 px-2">
 
       <div class="row">
         <div class="col-12 col-md-3 text-right-more-than-md">
-          <%= form_with model:@customer, url: customer_registration_path do |f| %>
-            氏名<span class="text-muted necessary-field p-1 px-2 ml-2 small rounded">必須</span>
+          氏名<span class="text-muted necessary-field p-1 px-2 ml-2 small rounded">必須</span>
         </div>
         <div class="col-12 col-md-4">
             <%= f.text_field :last_name, autofocus: true, placeholder:"令和", class: "form-control mt-1" %>
@@ -54,11 +53,8 @@
           <div class="flex-more-than-md">
 
             <div>
-              郵便番号
+              郵便番号<span class="text-muted necessary-field p-1 px-2 ml-2 small rounded">必須</span>
               <br><span class="small">(ハイフンなし)</span>
-            </div>
-            <div>
-              <span class="text-muted necessary-field p-1 px-2 ml-2 small rounded">必須</span>
             </div>
           </div>
         </div>
@@ -80,11 +76,8 @@
 
           <div class="flex-more-than-md">
             <div>
-              電話番号
+              電話番号<span class="text-muted necessary-field p-1 px-2 ml-2 small rounded">必須</span>
               <br><span class="small">(ハイフンなし)</span>
-            </div>
-            <div>
-              <span class="text-muted necessary-field p-1 px-2 ml-2 small rounded">必須</span>
             </div>
           </div>
 
@@ -99,12 +92,9 @@
 
           <div class="flex-more-than-md">
             <div>
-              パスワード<% if @minimum_password_length %>
+              パスワード<% if @minimum_password_length %><span class="text-muted necessary-field p-1 px-2 ml-2 small rounded">必須</span>
               <br><span class="small">(<%= @minimum_password_length %> 文字以上)</span>
               <% end %>
-            </div>
-            <div>
-              <span class="text-muted necessary-field p-1 px-2 ml-2 small rounded">必須</span>
             </div>
           </div>
 
@@ -128,7 +118,6 @@
         <%= f.submit "新規登録", class:"btn btn-outline-secondary px-3 mt-4" %>
         <% end %>
       </div>
-
     </div>
 
     <div class="col-12">

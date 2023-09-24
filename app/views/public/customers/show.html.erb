@@ -4,8 +4,9 @@
       <h3 class="my-5">マイページ</h3>
         <div class="d-flex align-items-center">
           <h4><b>登録情報</b></h4>
-          <%= link_to "編集する", customers_information_edit_path, class:"btn btn-success ml-3" %>
+          <%= link_to "編集する", customers_information_edit_path, class:"btn btn-dark ml-3" %>
         </div>
+        <br>
           <table class="table table-bordered">
             <tr>
               <td>氏名</td>
@@ -19,7 +20,7 @@
 
             <tr>
               <td>郵便番号</td>
-              <td><%= @customer.postal_code %></td>
+              <td>〒<%= @customer.postal_code %></td>
             </tr>
 
             <tr>
@@ -39,12 +40,12 @@
           </table>
           <div class="d-flex align-items-center">
             <h4><b>配送先</b></h4>
-            &emsp;&emsp;<%= link_to "一覧を見る", addresses_path, class: "btn btn-primary ml-3" %>
+            &emsp;&emsp;<%= link_to "一覧を見る", addresses_path, class: "btn btn-dark ml-3" %>
           </div>
           <br>
           <div class="d-flex align-items-center">
             <h4><b>注文履歴</b></h4>
-            &thinsp;&thinsp;<%= link_to "一覧を見る", orders_path, class: "btn btn-primary ml-3" %>
+            &thinsp;&thinsp;<%= link_to "一覧を見る", orders_path, class: "btn btn-dark ml-3" %>
          </div>
     </div>
   </div>

@@ -2,20 +2,17 @@
   <div class="row">
     <%= render "public/items/genre", genre: @genres %>
     <div class="box2 col-10">
-      <div class="card">
-        <%= image_tag 'cake2.jpg',class: "card-img" %>
-          <div class="card-img-overlay">
-            <p style="font-size:24px;">
-              ようこそ、ながのCAKEへ！<br>
-              このサイトは、ケーキ販売ECサイトになります。<br>
-              会員でない方も商品の閲覧はできますが、<br>
-              購入には会員登録が必要になります。<br>
-            </p>
-          </div>
+            <div class="main-visual-cover mx-auto">
+      <div class="main-visual">
+        <h3 class=" mt-5">ようこそ、ながのCAKEへ!</h3>
+        <p>このサイトは、ケーキ販売のECサイトになります。</p>
+        <p>会員でない方も商品の開覧はできますが、</p>
+        <p>購入には会員登録が必要になります。</p>
       </div>
+    </div>
       <h3 class="mt-3">新着商品</h3>
       <div class="d-flex justify-content-center" >
-        
+
         <% @items.each do |item| %>
           <div class="mx-2 mb-4">
             <%= link_to item_path(item.id) do %>
@@ -29,10 +26,10 @@
             <% end %>
           </div>
         <% end %>
-        
+
       </div>
       <div class="row justify-content-end">
-        <%= link_to '全ての商品を見る>', items_path, style: "color: #3B240B" %>
+        <%= link_to '全ての商品を見る>', items_path, class: "text-reset" %>
       </div>
     </div>
   </div>

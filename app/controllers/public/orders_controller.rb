@@ -4,7 +4,7 @@ class Public::OrdersController < ApplicationController
   def new
   end
 
-  def error 
+  def error
   end
 
   def confirm
@@ -85,7 +85,7 @@ class Public::OrdersController < ApplicationController
     OrderDetail.create!(order_id: @order.id, item_id: cart_item.item.id, price: cart_item.item.with_tax_price, amount: cart_item.amount, production_status: 0)
     end
     @cart_items.destroy_all
-    redirect_to complete_orders_path
+    redirect_to orders_complete_path
   else
     flash[:notice] = "注文が確定できませんでした。もう一度やり直してください。"
     redirect_to new_order_path

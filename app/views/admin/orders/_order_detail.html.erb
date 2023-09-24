@@ -19,7 +19,7 @@
         <td>
           <%= form_with model: order_details, url: admin_order_details_path(order_details), method: :patch do |f| %>
             <%= f.select :production_status, OrderDetail.production_statuses_i18n.invert %>
-            <%= f.submit "更新" , class: "btn btn-sm btn-success" %>
+            <%= f.submit "更新" , class: "btn btn-dark" %>
           <% end %>
         </td>
       </tr>

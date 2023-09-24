@@ -1,6 +1,6 @@
-<div class="container">
+<div class="container p-3">
   <div class="row">
-    <h1>配送先登録/一覧</h1>
+    <h3>配送先登録/一覧</h3>
   </div>
   <div class="row">
     <%= render 'layouts/error', obj: @address %>
@@ -21,12 +21,12 @@
       <tbody>
         <% @addresses.each do |address| %>
           <tr>
-            <td><%= address.postal_code %></td>
-            <td><%= address.address %></td>
-            <td><%= address.name %></td>
-            <td>
-              <%= link_to "編集する", edit_address_path(address), class: "btn btn-success" %>
-              <%= link_to "削除する", address_path(address), method: :delete, class: "btn btn-danger" %>
+            <td style="width: 10%;"><%= address.postal_code %></td>
+            <td style="width: 50%;"><%= address.address %></td>
+            <td style="width: 15%;"><%= address.name %></td>
+            <td style="width: 25%;">
+              <%= link_to "編集する", edit_address_path(address), class: "btn btn-dark" %>
+              <%= link_to "削除する", address_path(address), method: :delete, class: "btn btn-dark" %>
             </td>
           </tr>
         <% end %>

@@ -49,7 +49,7 @@
     </div>
     <% if @cart_items.exists? %>
       <div class="col-4 ml-auto">
-        <table class="table">
+        <table class="table table-bordered">
           <tr>
             <td>合計金額</td>
             <td>¥<%= @total_price.floor.to_s(:delimited) %></td>

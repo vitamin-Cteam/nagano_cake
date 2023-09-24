@@ -15,11 +15,11 @@
       <td><%= f.text_field :name, placeholder: "令和道子", class: "form-control w-75" %></td>
       <% if address.new_record? %>
         <td>
-          <%= f.submit "新規登録", class:"btn btn-success" %>
+          <%= f.submit "新規登録", class:"btn btn-dark" %>
         </td>
       <% else %>
         <td>
-          <%= f.submit "変更内容を保存", class:"btn btn-success" %>
+          <%= f.submit "変更内容を保存", class:"btn btn-dark" %>
         </td>
       <% end %>
     </tr>

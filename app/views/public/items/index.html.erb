@@ -1,6 +1,8 @@
-<div class="container">
-  <h1>商品一覧</h1>
-  <span>（全<%= @all_items.count %>件）</span>
+<div class="container p-3">
+  <div class="row">
+    <h3>商品一覧</h3>
+    <span class="mt-2">（全<%= @all_items.count %>件）</span>
+  </div>
   <div class="d-flex flex-wrap">
     <% @items.each do |item| %>
       <div class="mx-2 mb-4">

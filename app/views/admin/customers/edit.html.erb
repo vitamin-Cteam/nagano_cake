@@ -9,43 +9,45 @@
       <!--form部分-->
       <%= form_with model: @customer, url: admin_customer_path(@customer), method: :patch do |f| %>
         <table class="table">
-          <tr>
-            <td>会員ID</td>
-            <td><%= @customer.id %></td> <!--@customerはform_withで指定されてないからインスタンス変数のまま-->
-          </tr>
-          <tr>
-            <td>氏名</td>
-            <td><%= f.text_field :last_name %> <%= f.text_field :first_name %></td>
-          </tr>
-          <tr>
-            <td>フリガナ</td>
-            <td><%= f.text_field :last_name_kana %> <%= f.text_field :first_name_kana %></td>
-          </tr>
-          <tr>
-            <td>郵便番号</td>
-            <td><%= f.text_field :postal_code %></td>
-          </tr>
-          <tr>
-            <td>住所</td>
-            <td><%= f.text_field :address %></td>
-          </tr>
-          <tr>
-            <td>電話番号</td>
-            <td><%= f.text_field :telephone_number %></td>
-          </tr>
-          <tr>
-            <td>メールアドレス</td>
-            <td><%= f.email_field :email %></td>
-          </tr>
-          <tr>
-            <td>会員ステータス</td>
-            <td>
-              <%= f.radio_button :is_active, true %>
-              <%= f.label :is_active_true, "退会" %>
-              <%= f.radio_button :is_active, false %>
-              <%= f.label :is_active_false, "有効" %>
-            </td>
-          </tr>
+          <div class="py-3">
+            <tr>
+              <td>会員ID</td>
+              <td><%= @customer.id %></td> <!--@customerはform_withで指定されてないからインスタンス変数のまま-->
+            </tr>
+            <tr>
+              <td>氏名</td>
+              <td><%= f.text_field :last_name %> <%= f.text_field :first_name %></td>
+            </tr>
+            <tr>
+              <td>フリガナ</td>
+              <td><%= f.text_field :last_name_kana %> <%= f.text_field :first_name_kana %></td>
+            </tr>
+            <tr>
+              <td>郵便番号</td>
+              <td><%= f.text_field :postal_code %></td>
+            </tr>
+            <tr>
+              <td>住所</td>
+              <td><%= f.text_field :address %></td>
+            </tr>
+            <tr>
+              <td>電話番号</td>
+              <td><%= f.text_field :telephone_number %></td>
+            </tr>
+            <tr>
+              <td>メールアドレス</td>
+              <td><%= f.email_field :email %></td>
+            </tr>
+            <tr>
+              <td>会員ステータス</td>
+              <td>
+                <%= f.radio_button :is_active, true %>
+                <%= f.label :is_active_true, "退会" %>
+                <%= f.radio_button :is_active, false %>
+                <%= f.label :is_active_false, "有効" %>
+              </td>
+            </tr>
+          </div>
         </table>
         <%= f.submit "変更を保存",class: "btn btn-dark" %>
       <% end %>

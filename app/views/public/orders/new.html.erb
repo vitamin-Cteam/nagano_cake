@@ -19,17 +19,17 @@
     </div>
 
     <div class="col-12">
-    <h5>お届け先</h5>
-    <div class="p-3">
-    <%= f.radio_button :address_type, "customer_address", checked: true %>
-    <%= f.label :address_type, "ご自身の住所" %>&ensp;
-    〒<%= current_customer.postal_code + "　" + current_customer.address + "　" + current_customer.last_name + current_customer.first_name %>様
+      <h5>お届け先</h5>
+      <div class="p-3">
+        <%= f.radio_button :address_type, "customer_address", checked: true %>
+        <%= f.label :address_type, "ご自身の住所" %>&ensp;
+        〒<%= current_customer.postal_code + "　" + current_customer.address + "　" + current_customer.last_name + current_customer.first_name %>様
     </div>
 
     <div class="p-3">
-    <%= f.radio_button :address_type, [:registered_address] %>
-    <%= f.label :address_type, "登録済住所から選択" %>
-    <%= f.select :registered_address_id, current_customer.addresses.all.map { |m| [[m.postal_code, m.address, m.name].join(" "), m.id] } ,include_blank: "登録した配送先住所から選択", class: "form-control" %>
+      <%= f.radio_button :address_type, [:registered_address] %>
+      <%= f.label :address_type, "登録済住所から選択" %>
+      <%= f.select :registered_address_id, current_customer.addresses.all.map { |m| [[m.postal_code, m.address, m.name].join(" "), m.id] } ,include_blank: "登録した配送先住所から選択", class: "form-control" %>
     </div>
 
     <div class="p-3">

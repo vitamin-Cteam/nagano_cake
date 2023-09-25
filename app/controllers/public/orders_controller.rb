@@ -63,48 +63,46 @@ class Public::OrdersController < ApplicationController
     @order.status = 0
 
     address_type = params[:order][:address_type]
-  case address_type
-  when "customer_address"
-    @order.postal_code = current_customer.postal_code
-    @order.address = current_customer.address
-    @order.name = current_customer.last_name + current_customer.first_name
-  when "registered_address"
-    Address.find(params[:order][:registered_address_id])
-    selected = Address.find(params[:order][:registered_address_id])
-    @order.postal_code = selected.postal_code
-    @order.address = selected.address
-    @order.name = selected.name
-  when "new_address"
-    @order.postal_code = params[:order][:new_postal_code]
-    @order.address = params[:order][:new_address]
-    @order.name = params[:order][:new_name]
-  end
-
-  if @order.save
-    @cart_items.each do |cart_item|
-    OrderDetail.create!(order_id: @order.id, item_id: cart_item.item.id, price: cart_item.item.with_tax_price, amount: cart_item.amount, production_status: 0)
+    case address_type
+    when "customer_address"
+      @order.postal_code = current_customer.postal_code
+      @order.address = current_customer.address
+      @order.name = current_customer.last_name + current_customer.first_name
+    when "registered_address"
+      Address.find(params[:order][:registered_address_id])
+      selected = Address.find(params[:order][:registered_address_id])
+      @order.postal_code = selected.postal_code
+      @order.address = selected.address
+      @order.name = selected.name
+    when "new_address"
+      @order.postal_code = params[:order][:new_postal_code]
+      @order.address = params[:order][:new_address]
+      @order.name = params[:order][:new_name]
     end
-    @cart_items.destroy_all
-    redirect_to orders_complete_path
-  else
-    flash[:notice] = "注文が確定できませんでした。もう一度やり直してください。"
-    redirect_to new_order_path
-  end
 
-
+    if @order.save
+      @cart_items.each do |cart_item|
+      OrderDetail.create!(order_id: @order.id, item_id: cart_item.item.id, price: cart_item.item.with_tax_price, amount: cart_item.amount, production_status: 0)
+      end
+      @cart_items.destroy_all
+      redirect_to orders_complete_path
+    else
+      flash[:notice] = "注文が確定できませんでした。もう一度やり直してください。"
+      redirect_to new_order_path
+    end
 
   end
 
   def index
-  @orders = Order.where(customer_id: current_customer.id).order(created_at: :desc).page(params[:page]).per(10)
+    @orders = Order.where(customer_id: current_customer.id).order(created_at: :desc).page(params[:page]).per(10)
   end
 
   def show
-  @order = Order.find(params[:id])
-  @order_details= OrderDetail.where(order_id: @order.id)
+    @order = Order.find(params[:id])
+    @order_details= OrderDetail.where(order_id: @order.id)
   end
 
   def complete
   end
 
-  end
+end

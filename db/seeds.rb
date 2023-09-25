@@ -5,37 +5,40 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
-Customer.create!(
-   email: 'test@test.com',
-   last_name: 'テスト',
-   first_name: '太郎',
-   last_name_kana: 'テスト',
-   first_name_kana: 'タロウ',
-   postal_code: '0000000',
-   address: 'テスト',
-   telephone_number: '0000000000',
-   is_active: 'false',
-   password: '000000'
-)
+
+11.times do |n|
+  Customer.create!(
+    email: "test#{n + 1}@test.com",
+    last_name: "テスト",
+    first_name: "太郎#{n + 1}",
+    last_name_kana: "テスト",
+    first_name_kana: "タロウ",
+    postal_code: "0000000",
+    address: "テスト#{n + 1}",
+    telephone_number: "0000000000",
+    is_active: "false",
+    password: "000000"
+  )
+end
 
 Admin.create!(
-   email: 'testc@testc.com',
-   password: '111111'
+  email: 'testc@testc.com',
+  password: '111111'
 )
 
 Genre.create!(
   [
     {
-      name: 'ケーキ',
+      name: 'ケーキ'
     },
     {
-      name: '焼き菓子',
+      name: '焼き菓子'
     },
     {
-      name: 'プリン',
+      name: 'プリン'
     },
     {
-      name: 'キャンディ',
+      name: 'キャンディ'
     }
   ]
 )
@@ -124,3 +127,26 @@ Item.create!(
     }
   ]
 )
+
+11.times do |n|
+  Order.create!(
+    customer_id: n + 1,
+    payment_method: 0,
+    postal_code: "0000000",
+    address: "テスト",
+    name: "テスト",
+    status: 1,
+    billing_amount: 2800,
+    shipping_cost: 800
+  )
+end
+
+11.times do |n|
+  OrderDetail.create!(
+    order_id: n + 1,
+    item_id: 1,
+    price: 1000,
+    amount: 1,
+    production_status: 2
+  )
+end

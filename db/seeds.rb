@@ -136,7 +136,7 @@ Item.create!(
     address: "テスト",
     name: "テスト",
     status: 1,
-    billing_amount: 2800,
+    billing_amount: 1900,
     shipping_cost: 800
   )
 end

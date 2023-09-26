@@ -1,0 +1,94 @@
+@use '~bootstrap/scss/bootstrap';
+
+.table {
+    color: #3B240B !important;
+}
+
+.table-bordered > tbody > tr > td {
+    border: 1px solid rgba(59, 36, 11, 0.7) !important;
+    color: #3B240B !important;
+}
+
+.table-bordered > thead > tr > th {
+    border: 1px solid rgba(59, 36, 11, 0.7) !important;
+    color: #3B240B !important;
+}
+
+.table-bordered > thead {
+  border-bottom: 2px solid rgba(59, 36, 11, 0.7) !important;
+}
+
+.btn-dark {
+    border: 0 none;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    background-color: #3B240B;
+    color: white
+}
+
+.btn-dark:hover, .btn-dark:focus,
+.btn-dark:active, .btn-dark:active:focus, .btn-dark:active:hover, .btn-dark:active.focus,
+.btn-dark.active, .btn-dark.active:focus, .btn-dark.active:hover, .btn-dark.active.focus,
+.open > .dropdown-toggle.btn-dark,
+.open > .dropdown-toggle.btn-dark:hover,
+.open > .dropdown-toggle.btn-dark:focus,
+.open > .dropdown-toggle.btn-dark.focus,
+.btn-dark.disabled:hover, .btn-dark[disabled]:hover, fieldset[disabled] .btn-dark:hover,
+.btn-dark.disabled:focus, .btn-dark[disabled]:focus, fieldset[disabled] .btn-dark:focus,
+.btn-dark.disabled.focus, .btn-dark[disabled].focus, fieldset[disabled] .btn-dark.focus {
+    background: #3B240B; //ボタンの上にポインタを持ってきたり、クリックしたりした時の背景色
+    color: white; //ボタンの上にポインタを持ってきたり、クリックしたりした時のテキストの色
+}
+
+.btn-dark.outline {
+    border: 3px solid #3B240B; //アウトラインのみのボタンの線の色
+    color: white; //アウトラインのみのボタンのテキストの色
+}
+
+.pagination{
+  width: fit-content;
+  margin: 25px auto;
+  font-size: 0.8rem;
+  line-height: 2rem;
+}
+
+.first a,
+.prev a,
+.page a,
+.next a,
+.last a{
+  color: #3B240B !important;
+  text-decoration: none;
+  padding: 5px;
+  margin: 2px;
+  border: 1px solid rgba(59, 36, 11, 0.7);
+}
+
+.first a:hover,
+.prev a:hover,
+.page a:hover,
+.next a:hover,
+.last a:hover{
+  border: 1px solid rgba(59, 36, 11, 0.7);
+  background-color: #F5A9A9;
+  color: #3B240B;
+}
+
+span.current{
+  color: #3B240B;
+}
+
+    .main-visual {
+     display: inline-block;
+     height: 600px;
+     text-align: center;
+     background-color:rgba(255,255,255,0.7);
+    }
+
+    .main-visual-cover {
+      text-align: start;
+      background-size: cover;
+      background-position: center;
+      height: 600px;
+      background-image: url(../images/cake2.jpg);
+    }

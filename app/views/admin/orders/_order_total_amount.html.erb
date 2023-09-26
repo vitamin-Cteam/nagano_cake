@@ -1,0 +1,16 @@
+<div class="col-3 mx-auto">
+  <table class="table table-bordered">
+      <tr>
+        <td>商品合計</td>
+        <td class="text-right"><%= (order.billing_amount - order.shipping_cost).to_s(:delimited) %>円</td>
+      </tr>
+      <tr>
+        <td>送料</td>
+        <td class="text-right"><%= order.shipping_cost.to_s(:delimited) %>円</td>
+      </tr>
+      <tr>
+        <td>請求金額合計</td>
+        <td class="text-right font-weight-bold"><%= order.billing_amount.to_s(:delimited) %>円</td>
+      </tr>
+  </table>
+</div>

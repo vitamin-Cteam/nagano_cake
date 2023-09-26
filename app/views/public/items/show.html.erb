@@ -1,0 +1,22 @@
+<div class="container p-3">
+  <div class="row">
+    <%= render "public/items/genre", genre: @genres %>
+    <div class="col-5">
+      <%= image_tag @item.get_item_image(450, 300), style: "object-fit: cover; width: 450px; height: 300px;" %>
+    </div>
+    <div class="col-5">
+      <h3><%= @item.name %></h3>
+      <p><%= @item.description %></p>
+      <p>¥<%= @item.with_tax_price.to_s(:delimited) %>（税込）</p>
+      <% if @item.is_on_sale == true %>
+        <%= form_with model: CartItem.new do |f| %>
+          <%= f.select :amount, *[1..10], { prompt: '個数選択' } %>
+          <%= f.hidden_field :item_id, :value => @item.id %>
+          <%= f.submit "カートに入れる", class: "btn btn-sm btn-dark" %>
+        <% end %>
+      <% else %>
+        <p class="text-danger font-weight-bold">SOLD OUT</p>
+      <% end %>
+    </div>
+  </div>
+</div>
